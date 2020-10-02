@@ -4,20 +4,21 @@ module.exports = function check(str, bracketsConfig) {
   bracketsConfig.forEach(el => {
     newBrack.push(el.join(''))
   });
-  
-      for (let j = 0; j < newBrack.length; j++) {
 
-        if(str.includes(newBrack[j])) {
-          newStr = str.replace(newBrack[j], "")
-        }
+  console.log(newBrack)
+  let long = str.length
+  for (let i = 0; i < long; i++) {
+    for (let j = 0; j < newBrack.length; j++) {
+      if(str.includes(newBrack[j])) {
+        newStr = str.replace(newBrack[j], "")
+        str = newStr
       }
-      
-  console.log(str)
-    if(newStr === str) {
-      return false
-    } else if(newStr === "") {
-      return true
-    }else {
-    return check(newStr, bracketsConfig)
+    
     }
+  }
+  if(newStr.length === 0) {
+    return true
+  } else{
+    return false
+  }
 }
