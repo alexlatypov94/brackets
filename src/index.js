@@ -5,7 +5,6 @@ module.exports = function check(str, bracketsConfig) {
     newBrack.push(el.join(''))
   });
   
-  long = str.length
       for (let j = 0; j < newBrack.length; j++) {
 
         if(str.includes(newBrack[j])) {
